@@ -19,14 +19,12 @@ public class StudentRepository {
 
     public void saveStudent(Student student){
         // your code goes here
-        Student currStrudent = student;
-        studentMap.put(currStrudent.getName(),student);
+        studentMap.put(student.getName(),student);
     }
 
     public void saveTeacher(Teacher teacher){
         // your code goes here
-        Teacher currTeacher = teacher;
-        teacherMap.put(currTeacher.getName(),teacher);
+        teacherMap.put(teacher.getName(),teacher);
     }
 
     public void saveStudentTeacherPair(String student, String teacher){
@@ -56,11 +54,7 @@ public class StudentRepository {
 
     public List<String> findAllStudents(){
         // your code goes here
-        List<String> list = new ArrayList<>();
-        for(String key:studentMap.keySet()){
-            list.add(key);
-        }
-        return list;
+        return new ArrayList<>(studentMap.keySet());
     }
 
     public void deleteTeacher(String teacher){

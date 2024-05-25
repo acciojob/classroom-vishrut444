@@ -24,19 +24,20 @@ public class StudentController {
 
     @PostMapping("/add-student")
     public ResponseEntity<String> addStudent(@RequestBody Student student){
-
+        studentService.addStudent(student);
         return new ResponseEntity<>("New student added successfully", HttpStatus.CREATED);
     }
 
     @PostMapping("/add-teacher")
     public ResponseEntity<String> addTeacher(@RequestBody Teacher teacher){
+        studentService.addTeacher(teacher);
 
         return new ResponseEntity<>("New teacher added successfully", HttpStatus.CREATED);
     }
 
     @PutMapping("/add-student-teacher-pair")
     public ResponseEntity<String> addStudentTeacherPair(@RequestParam("sname") String student, @RequestParam("tname") String teacher){
-
+        studentService.createStudentTeacherPair(student,teacher);
         return new ResponseEntity<>("New student-teacher pair added successfully", HttpStatus.CREATED);
     }
 
